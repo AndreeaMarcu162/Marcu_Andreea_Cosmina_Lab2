@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Marcu_Andreea_Cosmina_Lab2.Data;
 using Marcu_Andreea_Cosmina_Lab2.Models;
 
-namespace Marcu_Andreea_Cosmina_Lab2.Pages.Authors
+namespace Marcu_Andreea_Cosmina_Lab2.Pages.Author
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace Marcu_Andreea_Cosmina_Lab2.Pages.Authors
         }
 
         [BindProperty]
-        public Models.Author Author { get; set; } = default!;
+        public Models.Author Authors { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,15 +29,15 @@ namespace Marcu_Andreea_Cosmina_Lab2.Pages.Authors
                 return NotFound();
             }
 
-            var author = await _context.Author.FirstOrDefaultAsync(m => m.ID == id);
+            var authors = await _context.Author.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (author == null)
+            if (authors == null)
             {
                 return NotFound();
             }
             else
             {
-                Author = author;
+                Authors = authors;
             }
             return Page();
         }
@@ -49,11 +49,11 @@ namespace Marcu_Andreea_Cosmina_Lab2.Pages.Authors
                 return NotFound();
             }
 
-            var author = await _context.Author.FindAsync(id);
-            if (author != null)
+            var authors = await _context.Author.FindAsync(id);
+            if (authors != null)
             {
-                Author = author;
-                _context.Author.Remove(Author);
+                Authors = authors;
+                _context.Author.Remove(Authors);
                 await _context.SaveChangesAsync();
             }
 

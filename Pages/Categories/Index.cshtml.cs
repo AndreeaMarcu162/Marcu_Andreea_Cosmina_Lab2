@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Marcu_Andreea_Cosmina_Lab2.Data;
 using Marcu_Andreea_Cosmina_Lab2.Models;
 
-namespace Marcu_Andreea_Cosmina_Lab2.Pages.Author
+namespace Marcu_Andreea_Cosmina_Lab2.Pages.Categories
 {
     public class IndexModel : PageModel
     {
@@ -19,11 +19,11 @@ namespace Marcu_Andreea_Cosmina_Lab2.Pages.Author
             _context = context;
         }
 
-        public IList<Models.Author> Authors { get; set; } = default!;
+        public IList<Category> Category { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Authors = await _context.Author.ToListAsync();
+            Category = await _context.Category.ToListAsync();
         }
     }
 }

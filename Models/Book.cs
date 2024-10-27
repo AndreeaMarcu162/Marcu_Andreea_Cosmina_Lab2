@@ -17,14 +17,7 @@ namespace Marcu_Andreea_Cosmina_Lab2.Models
         public Publisher? Publisher { get; set; }
         public int? AuthorID { get; set; }
         public Author? Author { get; set; }
-    }
+        public ICollection<BookCategory>? BookCategories { get; set; }
 
-    public static List<Book> GetInitialBooks()
-    {
-        return new List<Book>
-        {
-            new Books { Id = 1, Title = "Cartea 1", PublisherId = 1 },
-            new Books { Id = 2, Title = "Cartea 2", PublisherId = 2 }
-        };
     }
 }

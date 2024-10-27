@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Marcu_Andreea_Cosmina_Lab2.Data;
 using Marcu_Andreea_Cosmina_Lab2.Models;
 
-namespace Marcu_Andreea_Cosmina_Lab2.Pages.Author
+namespace Marcu_Andreea_Cosmina_Lab2.Pages.Categories
 {
     public class CreateModel : PageModel
     {
@@ -25,7 +25,7 @@ namespace Marcu_Andreea_Cosmina_Lab2.Pages.Author
         }
 
         [BindProperty]
-        public Models.Author Authors { get; set; } = default!;
+        public Category Category { get; set; } = default!;
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +35,7 @@ namespace Marcu_Andreea_Cosmina_Lab2.Pages.Author
                 return Page();
             }
 
-            _context.Author.Add(Authors);
+            _context.Category.Add(Category);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
