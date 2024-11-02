@@ -7,17 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Marcu_Andreea_Cosmina_Lab2.Data;
 using Marcu_Andreea_Cosmina_Lab2.Models;
-
-namespace Marcu_Andreea_Cosmina_Lab2.Pages.Categories
-{
-    public class IndexModel : PageModel
-    {
-        private readonly Marcu_Andreea_Cosmina_Lab2.Data.Marcu_Andreea_Cosmina_Lab2Context _context;
-
-        public IndexModel(Marcu_Andreea_Cosmina_Lab2.Data.Marcu_Andreea_Cosmina_Lab2Context context)
-        {
-            _context = context;
-        }
+using Marcu_Andreea_Cosmina_Lab2.Models.ViewModels;
 
         public IList<Category> Category { get;set; } = default!;
 
