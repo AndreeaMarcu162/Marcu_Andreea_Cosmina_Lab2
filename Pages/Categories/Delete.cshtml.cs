@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Marcu_Andreea_Cosmina_Lab2.Data;
 using Marcu_Andreea_Cosmina_Lab2.Models;
 
-namespace Cilibia_Malina_Lab2.Pages.Categories
+namespace Marcu_Andreea_Cosmina_Lab2.Pages.Categories
 {
     public class DeleteModel : PageModel
     {

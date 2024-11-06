@@ -1,15 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Marcu_Andreea_Cosmina_Lab2.Data;
 using Marcu_Andreea_Cosmina_Lab2.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<Marcu_Andreea_Cosmina_Lab2Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Marcu_Andreea_Cosmina_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Marcu_Andreea_Cosmina_Lab2Context' not found.")));
-
-var app = builder.Build();
+builder.Services.AddDbContext<LibraryIdentityContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Marcu_Andreea_Cosmina_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Marcu_Andreea_Cosmina_Lab2Context' not found.")));
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<LibraryIdentityContext>(); var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
